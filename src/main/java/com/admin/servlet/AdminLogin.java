@@ -27,6 +27,10 @@ public class AdminLogin extends HttpServlet{
 			if("admin@medihome.com".equals(email) && "admin".equals(password)) {
 				session.setAttribute("adminObj", new User());
 				resp.sendRedirect("admin/adminindex.jsp");
+			}else {
+				session.setAttribute("getAlert", "Yes");
+				resp.sendRedirect("admin_login.jsp");
+				
 			}
 			
 		}catch(Exception e) {

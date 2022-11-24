@@ -5,23 +5,20 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Admin Login Page</title>
-<%@include file = "component/allcss.jsp" %>
+<%@include file="component/allcss.jsp"%>
 
 
 <style type="text/css">
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 body::-webkit-scrollbar {
-  display: none;
+	display: none;
 }
 
-
-
-.paint-card{
-box-shadow:0 0 10px rgba(0,0,0,0.3);
-margin-bottom: 10px;
+.paint-card {
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	margin-bottom: 10px;
 }
-
 </style>
 </head>
 <body>
@@ -35,7 +32,7 @@ margin-bottom: 10px;
 						<p class="fs-4 text-center">Admin Login</p>
 
 						<form action="adminLogin" method="post">
-						
+
 							<div class="mb-3">
 								<label class="form-label">Email Address</label><input required
 									name="email" type="email" class="form-control">
@@ -53,6 +50,28 @@ margin-bottom: 10px;
 			</div>
 		</div>
 	</div>
-<%@include file="component/footer.jsp"%>
+
+<!-- ---------yaha se mene galat id password dalne pr jo pop-up aata h woh diya h ---------------- -->
+	<%
+	session.setMaxInactiveInterval(2);
+	%>
+
+	<script type="text/javascript">
+var Msg ='<%=session.getAttribute("getAlert")%>
+		';
+		if (Msg != "null") {
+			function alertName() {
+				alert("Please Enter Valid Username and password");
+			}
+		}
+	</script>
+
+	<script type="text/javascript">
+		window.onload = alertName;
+	</script>
+	
+	
+<!-- --------yaha pr wo pop up ka code khtm ho gya h---------- -->	
+	<%@include file="component/footer.jsp"%>
 </body>
 </html>
